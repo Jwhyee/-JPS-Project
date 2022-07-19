@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LikeLionFirstProject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>LikeLionFirstProject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="LikeLionFirstProject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="LikeLionFirstProject:war exploded" />
+    </root>
+  </artifact>
+</component>
