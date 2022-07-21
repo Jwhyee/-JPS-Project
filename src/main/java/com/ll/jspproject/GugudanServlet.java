@@ -1,4 +1,4 @@
-package com.example.likelionfirstproject;
+package com.ll.jspproject;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

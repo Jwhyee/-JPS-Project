@@ -1,4 +1,4 @@
-package com.example.likelionfirstproject;
+package com.ll.jspproject;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
