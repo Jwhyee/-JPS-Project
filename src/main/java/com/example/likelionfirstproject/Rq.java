@@ -11,7 +11,7 @@ public class Rq{
     private final HttpServletRequest req;
     private final HttpServletResponse resp;
 
-    Rq(HttpServletRequest req, HttpServletResponse resp) {
+    public Rq(HttpServletRequest req, HttpServletResponse resp) {
         try {
             req.setCharacterEncoding("UTF-8");
         } catch (UnsupportedEncodingException e) {
