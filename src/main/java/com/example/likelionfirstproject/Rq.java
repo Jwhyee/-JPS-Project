@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class Rq{
+
     private final HttpServletRequest req;
     private final HttpServletResponse resp;
+
     Rq(HttpServletRequest req, HttpServletResponse resp) {
         try {
             req.setCharacterEncoding("UTF-8");
