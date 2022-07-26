@@ -7,9 +7,18 @@
 %>
 
 <h1>게시물 리스트</h1>
-
-<ul>
+<table>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>내용</th>
+    </tr>
     <% for ( ArticleDto article : articles ) { %>
-    <li><%=article.getId()%>. <%=article.getTitle()%></li>
+    <tr>
+        <td><%=article.getId()%></td>
+        <td><%=article.getTitle()%></td>
+        <td><%=article.getBody()%></td>
+    </tr>
+
     <% } %>
-</ul>
+</table>
