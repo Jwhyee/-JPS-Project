@@ -19,10 +19,6 @@ public class ArticleService {
     }
 
     public ArticleDto findById(long id) {
-        for (ArticleDto articleDto : datum) {
-            if (articleDto.getId() == id) {
-                return articleDto;
-            } else return null;
-        }
+        return articleRepository.findById(id);
     }
 }
