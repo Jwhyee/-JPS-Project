@@ -15,9 +15,9 @@
     </tr>
     <% for ( ArticleDto article : articles ) { %>
     <tr>
-        <td><%=article.getId()%></td>
-        <td><%=article.getTitle()%></td>
-        <td><%=article.getBody()%></td>
+        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getId()%></a></td>
+        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getTitle()%></a></td>
+        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getBody()%></a></td>
     </tr>
 
     <% } %>
