@@ -15,11 +15,19 @@ public class ArticleService {
         return articleRepository.write(title, body);
     }
 
+    public long update(long id, String title, String body) {
+        return articleRepository.update(id, title, body);
+    }
+
     public List<ArticleDto> findAll() {
         return articleRepository.findAll();
     }
 
     public ArticleDto findById(long id) {
         return articleRepository.findById(id);
+    }
+
+    public void deleteById(long id) {
+        articleRepository.deleteById(id);
     }
 }

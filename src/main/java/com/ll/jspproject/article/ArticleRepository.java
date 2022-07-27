@@ -23,6 +23,18 @@ public class ArticleRepository {
         return id;
     }
 
+    public long update(long id, String title, String body) {
+
+        for (ArticleDto articleDto : datum) {
+            if (articleDto.getId() == id) {
+                articleDto.setTitle(title);
+                articleDto.setBody(body);
+            }
+        }
+
+        return id;
+    }
+
     public List<ArticleDto> findAll() {
         return datum;
     }
@@ -35,5 +47,9 @@ public class ArticleRepository {
         }
 
         return null;
+    }
+
+    public void deleteById(long id) {
+        datum.removeIf(articleDto -> articleDto.getId() == id);
     }
 }
