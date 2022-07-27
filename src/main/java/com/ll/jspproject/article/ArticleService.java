@@ -6,7 +6,8 @@ import java.util.List;
 
 public class ArticleService {
     private ArticleRepository articleRepository;
-    public ArticleService(){
+
+    public ArticleService() {
         articleRepository = new ArticleRepository();
     }
 

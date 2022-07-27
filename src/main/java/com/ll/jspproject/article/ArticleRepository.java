@@ -28,12 +28,12 @@ public class ArticleRepository {
     }
 
     public ArticleDto findById(long id) {
-        for (ArticleDto articleDto : datum) {
-            if (articleDto.getId() == id) {
+        for ( ArticleDto articleDto : datum ) {
+            if ( articleDto.getId() == id ) {
                 return articleDto;
             }
         }
+
         return null;
     }
-
 }
