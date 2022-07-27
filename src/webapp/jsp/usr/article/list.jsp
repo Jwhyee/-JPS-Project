@@ -5,6 +5,7 @@
 <%
     List<ArticleDto> articles = (List<ArticleDto>)request.getAttribute("articles");
 %>
+<%@ include file="../common/head.jspf"%>
 <style>
     td{
         text-align: center;
@@ -31,3 +32,4 @@
 
     <% } %>
 </table>
+<%@ include file="../common/foot.jspf"%>

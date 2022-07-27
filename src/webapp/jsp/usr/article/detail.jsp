@@ -4,7 +4,7 @@
 <%
     ArticleDto article = (ArticleDto)request.getAttribute("articles");
 %>
-
+<%@ include file="../common/head.jspf"%>
 <h1>게시물 상세페이지</h1>
 <table>
     <tr>
@@ -21,3 +21,5 @@
 
     <% } %>
 </table>
+
+<%@ include file="../common/foot.jspf"%>

@@ -3,6 +3,7 @@
 <%
     ArticleDto article = (ArticleDto)request.getAttribute("article");
 %>
+<%@ include file="../common/head.jspf"%>
 <h1>게시물 수정</h1>
 
 <script>
@@ -51,3 +52,4 @@
         </div>
     </div>
 </form>
+<%@ include file="../common/foot.jspf"%>

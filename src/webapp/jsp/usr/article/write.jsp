@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ include file="../common/head.jspf"%>
 <h1>게시물 작성</h1>
 
 <script>
@@ -36,9 +36,9 @@
     </div>
 
     <div>
-        <span>작성</span>
         <div>
-            <input type="submit" value="작성" />
+            <input class="hover:underline hover:text-[red] cursor-pointer" type="submit" value="작성" />
         </div>
     </div>
 </form>
+<%@ include file="../common/foot.jspf"%>
