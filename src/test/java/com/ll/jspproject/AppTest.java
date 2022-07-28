@@ -19,7 +19,7 @@ class AppTest {
     }
 
     @Test
-    public void test_ObjectMapper() throws JsonProcessingException {
+    public void test_ObjectMapper() {
         ArticleDto articleDto = new ArticleDto(1, "제목", "내용");
 
         String jsonStr = Ut.json.toStr(articleDto, "");
