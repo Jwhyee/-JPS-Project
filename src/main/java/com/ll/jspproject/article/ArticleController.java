@@ -4,8 +4,7 @@ import com.ll.jspproject.Rq;
 import com.ll.jspproject.article.dto.ArticleDto;
 import com.ll.jspproject.util.Ut;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ArticleController {
     private ArticleService articleService;
@@ -24,7 +23,13 @@ public class ArticleController {
     public void showArticleJson(Rq rq) {
         List<ArticleDto> articleDtos = articleService.findAll();
 
-        rq.json(articleDtos);
+        Map<String, Object> resultData = new LinkedHashMap<>();
+
+        resultData.put("resultCode", "S-1");
+        resultData.put("msg", "성공");
+        resultData.put("data", articleDtos);
+
+        rq.json(resultData);
     }
 
     public void showWrite(Rq rq) {
