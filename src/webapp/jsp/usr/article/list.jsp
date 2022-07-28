@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.ll.jspproject.article.dto.ArticleDto" %>
@@ -23,11 +24,11 @@
     </tr>
     <% for ( ArticleDto article : articles ) { %>
     <tr>
-        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getId()%></a></td>
-        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getTitle()%></a></td>
-        <td><a href="/usr/article/detail/free/<%=article.getId()%>"><%=article.getBody()%></a></td>
-        <td style="width: 50px"><a href="/usr/article/delete/free/<%=article.getId()%>">삭제</a></td>
-        <td style="width: 50px"><a href="/usr/article/update/free/<%=article.getId()%>">수정</a></td>
+        <td><a href="/usr/article/detail/free/${article.id}">${article.id}</a></td>
+        <td><a href="/usr/article/detail/free/${article.id}">${article.title}</a></td>
+        <td><a href="/usr/article/detail/free/${article.id}">${article.body}</a></td>
+        <td style="width: 50px"><a href="/usr/article/delete/free/${article.id}">삭제</a></td>
+        <td style="width: 50px"><a href="/usr/article/update/free/${article.id}">수정</a></td>
     </tr>
 
     <% } %>
