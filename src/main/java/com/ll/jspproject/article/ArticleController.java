@@ -2,6 +2,7 @@ package com.ll.jspproject.article;
 
 import com.ll.jspproject.Rq;
 import com.ll.jspproject.article.dto.ArticleDto;
+import com.ll.jspproject.util.Ut;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,13 @@ public class ArticleController {
 
         rq.setAttr("articles", articleDtos);
         rq.view("usr/article/list");
+    }
+
+    public void showArticleJson(Rq rq) {
+        List<ArticleDto> articleDtos = articleService.findAll();
+
+        String jsonStr = Ut.json.toStr(articleDtos, "");
+        rq.println(jsonStr);
     }
 
     public void showWrite(Rq rq) {
