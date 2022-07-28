@@ -1,5 +1,6 @@
 package com.ll.jspproject.article;
 
+import com.ll.jspproject.ResultData;
 import com.ll.jspproject.Rq;
 import com.ll.jspproject.article.dto.ArticleDto;
 import com.ll.jspproject.util.Ut;
@@ -20,14 +21,10 @@ public class ArticleController {
         rq.view("usr/article/list");
     }
 
-    public void showArticleJson(Rq rq) {
+    public void getArticles(Rq rq) {
         List<ArticleDto> articleDtos = articleService.findAll();
 
-        Map<String, Object> resultData = new LinkedHashMap<>();
-
-        resultData.put("resultCode", "S-1");
-        resultData.put("msg", "성공");
-        resultData.put("data", articleDtos);
+        ResultData<List<ArticleDto>> resultData = new ResultData("성공", "S-1", articleDtos);
 
         rq.json(resultData);
     }

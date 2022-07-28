@@ -32,7 +32,7 @@ public class DispatchServlet extends HttpServlet {
                         articleController.showWrite(rq);
                         break;
                     case "/usr/article/getArticles":
-                        articleController.showArticleJson(rq);
+                        articleController.getArticles(rq);
                         break;
                     case "/usr/member/login":
                         memberController.showLogin(rq);
