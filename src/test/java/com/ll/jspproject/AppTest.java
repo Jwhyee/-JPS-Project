@@ -1,14 +1,9 @@
 package com.ll.jspproject;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ll.jspproject.article.dto.ArticleDto;
 import com.ll.jspproject.util.Ut;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
 
