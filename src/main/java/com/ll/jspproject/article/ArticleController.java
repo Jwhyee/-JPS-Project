@@ -20,22 +20,6 @@ public class ArticleController {
         rq.view("usr/article/list");
     }
 
-    public void getArticles(Rq rq) {
-        long fromId = rq.getLongParam("fromId", -1);
-
-        List<ArticleDto> articleDtos = null;
-
-        if (fromId == -1) {
-            articleDtos = articleService.findAll();
-        } else {
-            articleDtos = articleService.findAllIdGreater(fromId);
-        }
-
-        ResultData<List<ArticleDto>> resultData = new ResultData<>("성공", "S-1", articleDtos);
-
-        rq.json(resultData);
-    }
-
     public void showWrite(Rq rq) {
         rq.view("usr/article/write");
     }
@@ -141,5 +125,11 @@ public class ArticleController {
         // 브라우저에게 해당 URI로 이동하는 자바스크립트를 전송해주세요.
         // 혹시 그 전에 전할 메세지가 있다면 alert 로 표시되도록 자바스크립트를 구성해주세요.
         rq.replace("/usr/article/detail/free/%d".formatted(id), "%d번 게시물이 수정되었습니다.".formatted(id));
+    }
+
+    public void getArticles(Rq rq) {
+        List<ArticleDto> articleDtos = articleService.findAll();
+
+        rq.successJson(articleDtos);
     }
 }

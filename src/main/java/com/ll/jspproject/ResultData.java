@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ResultData<T> {
     private final String msg;
-    private  String resultCode;
+    private String resultCode;
     private T data;
 }
