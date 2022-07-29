@@ -4,6 +4,7 @@ import com.ll.jspproject.article.dto.ArticleDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class ArticleRepository {
@@ -63,5 +64,11 @@ public class ArticleRepository {
 
         articleDto.setTitle(title);
         articleDto.setBody(body);
+    }
+
+    public List<ArticleDto> findAllIdGreater(long fromId) {
+        return datum.stream()
+                .filter(articleDto -> articleDto.getId() > fromId)
+                .collect(Collectors.toList());
     }
 }

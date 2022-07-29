@@ -3,7 +3,6 @@ package com.ll.jspproject.article;
 import com.ll.jspproject.ResultData;
 import com.ll.jspproject.Rq;
 import com.ll.jspproject.article.dto.ArticleDto;
-import com.ll.jspproject.util.Ut;
 
 import java.util.*;
 
@@ -22,9 +21,17 @@ public class ArticleController {
     }
 
     public void getArticles(Rq rq) {
-        List<ArticleDto> articleDtos = articleService.findAll();
+        long fromId = rq.getLongParam("fromId", -1);
 
-        ResultData<List<ArticleDto>> resultData = new ResultData("성공", "S-1", articleDtos);
+        List<ArticleDto> articleDtos = null;
+
+        if (fromId == -1) {
+            articleDtos = articleService.findAll();
+        } else {
+            articleDtos = articleService.findAllIdGreater(fromId);
+        }
+
+        ResultData<List<ArticleDto>> resultData = new ResultData<>("성공", "S-1", articleDtos);
 
         rq.json(resultData);
     }
