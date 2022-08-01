@@ -1,6 +1,7 @@
 package com.ll.jspproject;
 
 import com.ll.jspproject.article.ArticleController;
+import com.ll.jspproject.chat.ChatController;
 import com.ll.jspproject.member.MemberController;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,10 +16,14 @@ public class DispatchServlet extends HttpServlet {
 
         MemberController memberController = new MemberController();
         ArticleController articleController = new ArticleController();
+        ChatController chatController = new ChatController();
 
         switch (rq.getRouteMethod()) {
             case "GET":
                 switch (rq.getActionPath()) {
+                    case "/usr/chat/createRoom":
+                        chatController.showCreateRoom(rq);
+                        break;
                     case "/usr/article/modify":
                         articleController.showModify(rq);
                         break;
@@ -31,11 +36,11 @@ public class DispatchServlet extends HttpServlet {
                     case "/usr/article/listAuto":
                         articleController.showListAuto(rq);
                         break;
-                    case "/usr/article/write":
-                        articleController.showWrite(rq);
-                        break;
                     case "/usr/article/getArticles":
                         articleController.getArticles(rq);
+                        break;
+                    case "/usr/article/write":
+                        articleController.showWrite(rq);
                         break;
                     case "/usr/member/login":
                         memberController.showLogin(rq);
