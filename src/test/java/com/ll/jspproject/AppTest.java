@@ -1,6 +1,6 @@
 package com.ll.jspproject;
 
-import com.ll.jspproject.article.ArticleController;
+import com.ll.jspproject.article.controller.ArticleController;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -14,9 +14,17 @@ public class AppTest {
     }
 
     @Test
-    public void ioc__articleCOntroller() {
-        ArticleController articleController = Con.getArticleController();
+    public void ioc__articleController() {
+        ArticleController articleController = Container.getArticleController();
 
         assertThat(articleController).isNotNull();
+    }
+
+    @Test
+    public void ioc__articleController__Singleton() {
+        ArticleController articleController1 = Container.getArticleController();
+        ArticleController articleController2 = Container.getArticleController();
+
+        assertThat(articleController2).isEqualTo(articleController1);
     }
 }
