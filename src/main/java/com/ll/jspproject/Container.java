@@ -1,8 +1,8 @@
 package com.ll.jspproject;
 
-import com.ll.jspproject.article.ArticleController;
+import com.ll.jspproject.article.controller.ArticleController;
 
-public class Con {
+public class Container {
     public static ArticleController getArticleController() {
         return new ArticleController();
     }
