@@ -1,11 +1,11 @@
 package com.ll.jspproject;
 
 import com.ll.jspproject.article.controller.ArticleController;
+import com.ll.jspproject.article.service.ArticleService;
 import com.ll.jspproject.home.controller.HomeController;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -53,5 +53,20 @@ public class AppTest {
 
         assertThat(names).contains("home");
         assertThat(names).contains("article");
+    }
+
+    @Test
+    public void ioc__articleService() {
+        ArticleService articleService = Container.getObj(ArticleService.class);
+
+        assertThat(articleService).isNotNull();
+    }
+
+    @Test
+    public void ioc__articleService__싱글톤() {
+        ArticleService articleService1 = Container.getObj(ArticleService.class);
+        ArticleService articleService2 = Container.getObj(ArticleService.class);
+
+        assertThat(articleService2).isEqualTo(articleService1);
     }
 }
