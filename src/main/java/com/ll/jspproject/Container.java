@@ -26,14 +26,14 @@ public class Container {
     }
 
     private static void scanServices() {
-        Reflections ref = new Reflections("com.ll.exam");
+        Reflections ref = new Reflections("com.ll.jspproject");
         for (Class<?> cls : ref.getTypesAnnotatedWith(Service.class)) {
             objects.put(cls, Ut.cls.newObj(cls, null));
         }
     }
 
     private static void scanControllers() {
-        Reflections ref = new Reflections("com.ll.exam");
+        Reflections ref = new Reflections("com.ll.jspproject");
         for (Class<?> cls : ref.getTypesAnnotatedWith(Controller.class)) {
             objects.put(cls, Ut.cls.newObj(cls, null));
         }
@@ -46,7 +46,7 @@ public class Container {
     public static List<String> getControllerNames() {
         List<String> names = new ArrayList<>();
 
-        Reflections ref = new Reflections("com.ll.exam");
+        Reflections ref = new Reflections("com.ll.jspproject");
         for (Class<?> cls : ref.getTypesAnnotatedWith(Controller.class)) {
             String name = cls.getSimpleName(); // HomeController
             name = name.replace("Controller", ""); // Home
