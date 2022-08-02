@@ -6,24 +6,25 @@ import com.ll.jspproject.home.controller.HomeController;
 import org.reflections.Reflections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class Container {
-    private static final ArticleController articleController;
-    private static final HomeController homeController;
 
-    static {
-        articleController = Ut.cls.newObj(ArticleController.class, null);
-        homeController = Ut.cls.newObj(HomeController.class, null);
+    private static Map<Class, Object> objects;
+
+    public static <T> T getObj(Class<T> cls) {
+        return (T)objects.get(cls);
     }
 
-    public static ArticleController getArticleController() {
-        return articleController;
-    }
+    static{
+        objects = new HashMap<>();
 
-    public static HomeController getHomeController() {
-        return homeController;
+        Reflections ref = new Reflections("com.ll.exam");
+        for (Class<?> cls : ref.getTypesAnnotatedWith(Controller.class)) {
+            objects.put(cls, Ut.cls.newObj(cls, null));
+        }
     }
 
     public static List<String> getControllerNames() {
