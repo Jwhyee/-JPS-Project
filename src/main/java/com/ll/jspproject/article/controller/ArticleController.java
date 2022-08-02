@@ -1,5 +1,6 @@
 package com.ll.jspproject.article.controller;
 
+import com.ll.jspproject.Container;
 import com.ll.jspproject.annotation.Autowired;
 import com.ll.jspproject.annotation.Controller;
 import com.ll.jspproject.annotation.GetMapping;
@@ -12,7 +13,7 @@ public class ArticleController {
 
     @GetMapping("usr/article/list")
     public void showList() {
-        System.out.println("articleService = " + articleService);
+
     }
 
     public ArticleService getArticleServiceForTest() {

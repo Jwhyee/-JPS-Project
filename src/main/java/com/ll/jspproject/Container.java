@@ -1,15 +1,14 @@
 package com.ll.jspproject;
 
+import com.ll.jspproject.annotation.Autowired;
 import com.ll.jspproject.annotation.Controller;
 import com.ll.jspproject.annotation.Service;
 import com.ll.jspproject.article.controller.ArticleController;
 import com.ll.jspproject.home.controller.HomeController;
 import org.reflections.Reflections;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class Container {
     private static Map<Class, Object> objects;
@@ -23,6 +22,36 @@ public class Container {
     private static void scanComponents() {
         scanServices();
         scanControllers();
+
+        // 조립
+        resolveDependenciesAllComponents();
+    }
+
+    private static void resolveDependenciesAllComponents() {
+        for (Class cls : objects.keySet()) {
+            Object o = objects.get(cls);
+            resolveDependencies(o);
+        }
+
+    }
+
+    private static void resolveDependencies(Object o) {
+        Arrays.asList(o.getClass().getDeclaredFields())
+                .stream()
+                .filter(f -> f.isAnnotationPresent(Autowired.class))
+                .map(field -> {
+                    field.setAccessible(true);
+                    return field;
+                })
+                .forEach(field -> {
+                    Class cls = field.getType();
+                    Object dependency = objects.get(cls);
+                    try {
+                        field.set(o, dependency);
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                });
     }
 
     private static void scanServices() {
